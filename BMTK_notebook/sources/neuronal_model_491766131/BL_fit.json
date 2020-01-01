@@ -1,0 +1,177 @@
+{
+  "passive": [
+    {
+      "ra": 150, 
+      "cm": [
+        {
+          "section": "soma", 
+          "cm": 1.5
+        }, 
+        {
+          "section": "axon", 
+          "cm": 1.5
+        }, 
+        {
+          "section": "dend", 
+          "cm": 0.8
+        },
+        {
+          "section": "apic", 
+          "cm": 0.8
+        }
+      ], 
+      "e_pas": -70.53709411621094
+    }
+  ], 
+  "axon_morph": [
+    {
+      "delete_axon": [
+        "forsec axonal{delete_section()}", 
+        "  create axon[2]", 
+        "  axon[0]{", 
+        "    L= 30", 
+        "    diam = 1", 
+        "    nseg = 1+2*int(L/40)", 
+        "    all.append()", 
+        "    axonal.append()", 
+        "  }", 
+        "  axon[1]{", 
+        "    L= 30", 
+        "    diam = 1", 
+        "    nseg = 1+2*int(L/40)", 
+        "    all.append()", 
+        "    axonal.append()", 
+        "  }", 
+        "", 
+        "nSecAxonal = 2", 
+        "connect axon(0), soma(0.5)", 
+        "connect axon[1](0), axon[0](1) ", 
+        "access soma"
+      ], 
+      "setup_line": "create soma[1], dend[1], apic[1], axon[1]"
+    }
+  ], 
+  "fitting": [
+    {
+      "junction_potential": -14.0, 
+      "sweeps": [
+        55
+      ]
+    }
+  ], 
+  "conditions": [
+    {
+      "celsius": 34.0, 
+      "erev": [
+        {
+          "ena": 53.0, 
+          "section": "soma", 
+          "ek": -90.0
+        }
+      ], 
+      "v_init": -70.53709411621094
+    }
+  ], 
+  "genome": [
+    {
+      "value": 5.5e-4, 
+      "section": "soma", 
+      "name": "gcabar_cadyn", 
+      "mechanism": "cadyn"
+    }, 
+    {
+      "value": 0.00003226, 
+      "section": "soma", 
+      "name": "glbar_leak", 
+      "mechanism": "leak"
+    }, 
+   {
+      "value": -72, 
+      "section": "soma", 
+      "name": "el_leak", 
+      "mechanism": "leak"
+    }, 
+    {
+      "value": 1.5e-5, 
+      "section": "soma", 
+      "name": "ghdbar_hd", 
+      "mechanism": "hd"
+    }, 
+    {
+      "value": 0.000018, 
+      "section": "soma", 
+      "name": "gbar_nap", 
+      "mechanism": "nap"
+    }, 
+    {
+      "value": 0.02615, 
+      "section": "soma", 
+      "name": "gbar_kdr", 
+      "mechanism": "kdr"
+    }, 
+    {
+      "value": 0.05, 
+      "section": "soma", 
+      "name": "fcas_capool", 
+      "mechanism": "capool"
+    }, 
+    {
+      "value": 0.0002, 
+      "section": "soma", 
+      "name": "gsAHPbar_sAHP", 
+      "mechanism": "sAHP"
+    }, 
+    {
+      "value": 0.00224, 
+      "section": "soma", 
+      "name": "gbar_im", 
+      "mechanism": "im"
+    }, 
+    {
+      "value": 0.002, 
+      "section": "soma", 
+      "name": "gkabar_kap", 
+      "mechanism": "kap"
+    }, 
+    {
+      "value": 5.5e-4, 
+      "section": "dend", 
+      "name": "gcabar_cadyn", 
+      "mechanism": "cadyn"
+    },  
+    {
+      "value": 0.00003226, 
+      "section": "dend", 
+      "name": "glbar_leak", 
+      "mechanism": "leak"
+    }, 
+   {
+      "value": -72, 
+      "section": "dend", 
+      "name": "el_leak", 
+      "mechanism": "leak"
+    }, 
+    {
+      "value": 1.5e-5, 
+      "section": "dend", 
+      "name": "ghdbar_hd", 
+      "mechanism": "hd"
+    }, 
+  
+    {
+      "value": 0.02615, 
+      "section": "dend", 
+      "name": "gbar_kdr", 
+      "mechanism": "kdr"
+    }, 
+    {
+      "value": 0.05, 
+      "section": "dend", 
+      "name": "fcas_capool", 
+      "mechanism": "capool"
+    }
+    
+      
+    
+  ]
+}
